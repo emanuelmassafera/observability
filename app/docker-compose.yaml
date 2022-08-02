@@ -41,6 +41,15 @@ services:
     networks:
       - observability
 
+  nginx:
+    build: ../nginx
+    container_name: nginx
+    command: --strict.perms=false -e
+    ports:
+      - "8280:80"
+    networks:
+      - observability
+
 networks:
   observability:
     external: true
